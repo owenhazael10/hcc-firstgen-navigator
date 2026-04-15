@@ -7,398 +7,84 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --purple-50: #EEEDFE;
-    --purple-200: #AFA9EC;
-    --purple-600: #534AB7;
-    --purple-800: #3C3489;
-    --teal-50: #E1F5EE;
-    --teal-600: #0F6E56;
-    --teal-800: #085041;
-    --amber-50: #FAEEDA;
-    --amber-600: #854F0B;
-    --gray-100: #F5F4F2;
-    --gray-200: #E8E7E3;
-    --gray-400: #888780;
-    --gray-700: #444441;
-    --gray-900: #1a1a18;
-    --white: #ffffff;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
-    --shadow: 0 2px 16px rgba(83,74,183,0.08);
+    --purple-50: #EEEDFE; --purple-200: #AFA9EC; --purple-600: #534AB7; --purple-800: #3C3489;
+    --teal-50: #E1F5EE; --teal-600: #0F6E56; --teal-800: #085041;
+    --amber-50: #FAEEDA; --amber-600: #854F0B;
+    --gray-100: #F5F4F2; --gray-200: #E8E7E3; --gray-400: #888780; --gray-700: #444441; --gray-900: #1a1a18;
+    --white: #ffffff; --radius-md: 12px; --radius-lg: 18px; --shadow: 0 2px 16px rgba(83,74,183,0.08);
   }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: #F0EFF8;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-    color: var(--gray-900);
-  }
-
-  .app-wrapper {
-    width: 100%;
-    max-width: 780px;
-  }
-
-  /* Header */
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 1.5rem;
-  }
-  .hawk-logo {
-    width: 52px;
-    height: 52px;
-    background: var(--purple-600);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(83,74,183,0.3);
-  }
-  .header-text h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--purple-800);
-    line-height: 1.2;
-  }
-  .header-text p {
-    font-size: 13px;
-    color: var(--gray-400);
-    margin-top: 2px;
-  }
-
-  /* Tabs */
-  .tabs {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 1.25rem;
-    flex-wrap: wrap;
-  }
-  .tab {
-    padding: 7px 16px;
-    border-radius: 999px;
-    border: 1.5px solid var(--gray-200);
-    background: var(--white);
-    cursor: pointer;
-    font-size: 13px;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--gray-400);
-    font-weight: 500;
-    transition: all 0.15s;
-  }
-  .tab:hover { border-color: var(--purple-200); color: var(--purple-600); }
-  .tab.active {
-    background: var(--purple-600);
-    border-color: var(--purple-600);
-    color: white;
-  }
-
-  /* Sections */
+  body { font-family: 'DM Sans', sans-serif; background: #F0EFF8; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; color: var(--gray-900); }
+  .app-wrapper { width: 100%; max-width: 780px; }
+  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.5rem; }
+  .hawk-logo { width: 52px; height: 52px; background: var(--purple-600); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: white; flex-shrink: 0; box-shadow: 0 4px 12px rgba(83,74,183,0.3); }
+  .header-text h1 { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: var(--purple-800); line-height: 1.2; }
+  .header-text p { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .tab { padding: 7px 16px; border-radius: 999px; border: 1.5px solid var(--gray-200); background: var(--white); cursor: pointer; font-size: 13px; font-family: 'DM Sans', sans-serif; color: var(--gray-400); font-weight: 500; }
+  .tab.active { background: var(--purple-600); border-color: var(--purple-600); color: white; }
   .section { display: none; }
   .section.active { display: block; }
-
-  /* Cards */
-  .card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
-  }
-  .card-label {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--purple-600);
-    margin-bottom: 8px;
-  }
-  .card p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--gray-700);
-  }
-
-  /* Deadlines grid */
+  .card { background: var(--white); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
+  .card-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple-600); margin-bottom: 8px; }
+  .card p { font-size: 14px; line-height: 1.7; color: var(--gray-700); }
   .deadline-group { margin-bottom: 1.5rem; }
-  .deadline-group h3 {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gray-400);
-    margin-bottom: 10px;
-  }
-  .deadline-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  .deadline-card {
-    background: var(--white);
-    border-radius: var(--radius-md);
-    padding: 14px;
-    box-shadow: var(--shadow);
-    border-top: 3px solid var(--purple-200);
-  }
+  .deadline-group h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); margin-bottom: 10px; }
+  .deadline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .deadline-card { background: var(--white); border-radius: var(--radius-md); padding: 14px; box-shadow: var(--shadow); border-top: 3px solid var(--purple-200); }
   .deadline-card.teal { border-top-color: #5DCAA5; }
   .deadline-card.amber { border-top-color: #EF9F27; }
-  .deadline-term { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); margin-bottom: 4px; }
+  .deadline-term { font-size: 10px; font-weight: 600; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
   .deadline-date { font-size: 15px; font-weight: 600; color: var(--gray-900); }
   .deadline-note { font-size: 11px; color: var(--gray-400); margin-top: 3px; }
-
-  /* Chat */
-  .chat-container {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-  .chat-header {
-    padding: 14px 16px;
-    background: var(--purple-600);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .chat-header-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #A3E635;
-    box-shadow: 0 0 6px #A3E635;
-  }
-  .chat-header span {
-    font-size: 13px;
-    font-weight: 500;
-    color: white;
-  }
-  .lang-bar {
-    padding: 8px 14px;
-    background: var(--gray-100);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid var(--gray-200);
-  }
+  .chat-container { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
+  .chat-header { padding: 14px 16px; background: var(--purple-600); display: flex; align-items: center; gap: 10px; }
+  .chat-header-dot { width: 8px; height: 8px; border-radius: 50%; background: #A3E635; }
+  .chat-header span { font-size: 13px; font-weight: 500; color: white; }
+  .lang-bar { padding: 8px 14px; background: var(--gray-100); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--gray-200); }
   .lang-bar span { font-size: 12px; color: var(--gray-400); }
-  .lang-btn {
-    padding: 3px 12px;
-    border-radius: 999px;
-    border: 1.5px solid var(--gray-200);
-    background: transparent;
-    font-size: 12px;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    color: var(--gray-400);
-    transition: all 0.15s;
-  }
-  .lang-btn.active {
-    background: var(--teal-50);
-    border-color: #5DCAA5;
-    color: var(--teal-800);
-    font-weight: 600;
-  }
-  .quick-btns {
-    padding: 10px 14px;
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--gray-200);
-    background: var(--white);
-  }
-  .quick-btn {
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1.5px solid var(--purple-200);
-    background: var(--purple-50);
-    color: var(--purple-800);
-    font-size: 12px;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.15s;
-  }
-  .quick-btn:hover { background: var(--purple-200); }
-  .chat-messages {
-    padding: 1rem;
-    min-height: 320px;
-    max-height: 420px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: #FAFAF8;
-  }
+  .lang-btn { padding: 3px 12px; border-radius: 999px; border: 1.5px solid var(--gray-200); background: transparent; font-size: 12px; font-family: 'DM Sans', sans-serif; cursor: pointer; color: var(--gray-400); }
+  .lang-btn.active { background: var(--teal-50); border-color: #5DCAA5; color: var(--teal-800); font-weight: 600; }
+  .quick-btns { padding: 10px 14px; display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--gray-200); background: var(--white); }
+  .quick-btn { padding: 5px 12px; border-radius: 999px; border: 1.5px solid var(--purple-200); background: var(--purple-50); color: var(--purple-800); font-size: 12px; font-family: 'DM Sans', sans-serif; cursor: pointer; font-weight: 500; }
+  .chat-messages { padding: 1rem; min-height: 320px; max-height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #FAFAF8; }
   .msg { display: flex; flex-direction: column; max-width: 82%; }
   .msg.bot { align-self: flex-start; }
   .msg.user { align-self: flex-end; }
   .msg-name { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); margin-bottom: 4px; }
   .msg.user .msg-name { text-align: right; }
-  .msg-bubble {
-    padding: 10px 14px;
-    font-size: 14px;
-    line-height: 1.6;
-    border-radius: var(--radius-md);
-  }
-  .msg.bot .msg-bubble {
-    background: var(--white);
-    color: var(--gray-700);
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .msg.user .msg-bubble {
-    background: var(--purple-600);
-    color: white;
-    border-bottom-right-radius: 4px;
-  }
-  .typing {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    padding: 12px 14px;
-    background: var(--white);
-    border-radius: var(--radius-md);
-    border-bottom-left-radius: 4px;
-    width: fit-content;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--purple-200);
-    animation: bounce 1.2s infinite;
-  }
+  .msg-bubble { padding: 10px 14px; font-size: 14px; line-height: 1.6; border-radius: var(--radius-md); }
+  .msg.bot .msg-bubble { background: var(--white); color: var(--gray-700); border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .msg.user .msg-bubble { background: var(--purple-600); color: white; border-bottom-right-radius: 4px; }
+  .typing { display: flex; gap: 5px; align-items: center; padding: 12px 14px; background: var(--white); border-radius: var(--radius-md); width: fit-content; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple-200); animation: bounce 1.2s infinite; }
   .dot:nth-child(2) { animation-delay: 0.2s; }
   .dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce {
-    0%,80%,100% { transform: translateY(0); }
-    40% { transform: translateY(-5px); }
-  }
-  .chat-input-row {
-    display: flex;
-    gap: 8px;
-    padding: 12px 14px;
-    border-top: 1px solid var(--gray-200);
-    background: var(--white);
-  }
-  .chat-input-row input {
-    flex: 1;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1.5px solid var(--gray-200);
-    background: var(--gray-100);
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--gray-900);
-    outline: none;
-    transition: border-color 0.15s;
-  }
-  .chat-input-row input:focus { border-color: var(--purple-200); background: white; }
-  .chat-input-row button {
-    padding: 10px 20px;
-    border-radius: 999px;
-    border: none;
-    background: var(--purple-600);
-    color: white;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-  .chat-input-row button:hover { background: var(--purple-800); }
+  @keyframes bounce { 0%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-5px); } }
+  .chat-input-row { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--gray-200); background: var(--white); }
+  .chat-input-row input { flex: 1; padding: 10px 14px; border-radius: 999px; border: 1.5px solid var(--gray-200); background: var(--gray-100); font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--gray-900); outline: none; }
+  .chat-input-row button { padding: 10px 20px; border-radius: 999px; border: none; background: var(--purple-600); color: white; font-size: 14px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; }
   .chat-input-row button:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  /* Badge */
-  .badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 600;
-  }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
   .badge-purple { background: var(--purple-50); color: var(--purple-800); }
   .badge-teal { background: var(--teal-50); color: var(--teal-800); }
-  .badge-amber { background: var(--amber-50); color: var(--amber-600); }
-
-  /* Info list */
   .info-list { list-style: none; }
-  .info-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--gray-200);
-    font-size: 14px;
-    color: var(--gray-700);
-    line-height: 1.5;
-    display: flex;
-    gap: 10px;
-  }
+  .info-list li { padding: 10px 0; border-bottom: 1px solid var(--gray-200); font-size: 14px; color: var(--gray-700); line-height: 1.5; }
   .info-list li:last-child { border-bottom: none; }
-  .info-list li::before {
-    content: '→';
-    color: var(--purple-200);
-    font-weight: 600;
-    flex-shrink: 0;
-  }
-
-  /* System prompt box */
-  .prompt-box {
-    background: var(--gray-100);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    font-size: 12.5px;
-    line-height: 1.8;
-    color: var(--gray-700);
-    font-family: monospace;
-    white-space: pre-wrap;
-    border-left: 3px solid var(--purple-200);
-    max-height: 320px;
-    overflow-y: auto;
-  }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--purple-800);
-    margin-bottom: 12px;
-  }
-
-  footer {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 12px;
-    color: var(--gray-400);
-  }
-
-  @media (max-width: 500px) {
-    .deadline-grid { grid-template-columns: 1fr; }
-    .tabs { gap: 4px; }
-    .tab { font-size: 12px; padding: 6px 12px; }
-  }
+  .prompt-box { background: var(--gray-100); border-radius: var(--radius-md); padding: 14px 16px; font-size: 12.5px; line-height: 1.8; color: var(--gray-700); font-family: monospace; white-space: pre-wrap; border-left: 3px solid var(--purple-200); max-height: 320px; overflow-y: auto; }
+  footer { margin-top: 2rem; text-align: center; font-size: 12px; color: var(--gray-400); }
+  @media (max-width: 500px) { .deadline-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-
 <div class="app-wrapper">
   <div class="header">
-    <div class="hawk-logo">🦅</div>
+    <div class="hawk-logo">HC</div>
     <div class="header-text">
       <h1>HCC First-Gen Navigator</h1>
-      <p>Financial aid · Majors · Careers · Support services · En español</p>
+      <p>Financial aid - Majors - Careers - Support services - En Espanol</p>
     </div>
   </div>
-
   <div class="tabs">
     <button class="tab active" onclick="showTab('chat', this)">Live agent</button>
     <button class="tab" onclick="showTab('deadlines', this)">HCC deadlines</button>
@@ -406,30 +92,29 @@
     <button class="tab" onclick="showTab('assignment', this)">Assignment writeup</button>
   </div>
 
-  <!-- CHAT TAB -->
   <div id="chat" class="section active">
     <div class="chat-container">
       <div class="chat-header">
         <div class="chat-header-dot"></div>
-        <span>HCC First-Gen Navigator — powered by Claude Opus 4.6</span>
+        <span>HCC First-Gen Navigator - powered by Claude Opus 4.6</span>
       </div>
       <div class="lang-bar">
         <span>Language:</span>
         <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
-        <button class="lang-btn" id="btn-es" onclick="setLang('es')">Español</button>
+        <button class="lang-btn" id="btn-es" onclick="setLang('es')">Espanol</button>
       </div>
       <div class="quick-btns">
         <button class="quick-btn" onclick="quickSend('I have no idea where to start as a first gen student')">Where do I start?</button>
         <button class="quick-btn" onclick="quickSend('What financial aid deadlines should I know?')">Financial aid</button>
         <button class="quick-btn" onclick="quickSend('Help me choose a major')">Pick a major</button>
         <button class="quick-btn" onclick="quickSend('How do I apply for FAFSA?')">FAFSA help</button>
-        <button class="quick-btn" onclick="quickSend('What free support does HCC offer students?')">Free support</button>
-        <button class="quick-btn" onclick="quickSend('en español')">En español</button>
+        <button class="quick-btn" onclick="quickSend('What free support does HCC offer?')">Free support</button>
+        <button class="quick-btn" onclick="quickSend('en espanol')">En Espanol</button>
       </div>
       <div class="chat-messages" id="chat-messages">
         <div class="msg bot">
           <div class="msg-name">HCC First-Gen Navigator</div>
-          <div class="msg-bubble" id="welcome-msg">Hi! I'm your HCC First-Gen Navigator 🦅 I'm here to help you navigate Hillsborough Community College — financial aid, choosing a major, understanding FAFSA, support services, and more. What can I help you with today? (You can also say "en español" to switch languages!)</div>
+          <div class="msg-bubble">Hi! I am your HCC First-Gen Navigator. I am here to help you navigate Hillsborough Community College - financial aid, choosing a major, FAFSA, support services, and more. What can I help you with today?</div>
         </div>
       </div>
       <div class="chat-input-row">
@@ -439,26 +124,13 @@
     </div>
   </div>
 
-  <!-- DEADLINES TAB -->
   <div id="deadlines" class="section">
     <div class="deadline-group">
       <h3>Financial aid priority deadlines</h3>
       <div class="deadline-grid">
-        <div class="deadline-card">
-          <div class="deadline-term">Fall 2025</div>
-          <div class="deadline-date">June 23, 2025</div>
-          <div class="deadline-note">Submit all docs by this date</div>
-        </div>
-        <div class="deadline-card teal">
-          <div class="deadline-term">Spring 2026</div>
-          <div class="deadline-date">Nov 17, 2025</div>
-          <div class="deadline-note">Submit all docs by this date</div>
-        </div>
-        <div class="deadline-card amber">
-          <div class="deadline-term">Summer 2026</div>
-          <div class="deadline-date">Mar 23, 2026</div>
-          <div class="deadline-note">Submit all docs by this date</div>
-        </div>
+        <div class="deadline-card"><div class="deadline-term">Fall 2025</div><div class="deadline-date">June 23, 2025</div><div class="deadline-note">Submit all docs by this date</div></div>
+        <div class="deadline-card teal"><div class="deadline-term">Spring 2026</div><div class="deadline-date">Nov 17, 2025</div><div class="deadline-note">Submit all docs by this date</div></div>
+        <div class="deadline-card amber"><div class="deadline-term">Summer 2026</div><div class="deadline-date">Mar 23, 2026</div><div class="deadline-note">Submit all docs by this date</div></div>
       </div>
     </div>
     <div class="deadline-group">
@@ -480,8 +152,8 @@
     <div class="card">
       <div class="card-label">HCC Foundation Scholarships</div>
       <ul class="info-list">
-        <li>Spring cycle — apps due ~February for fall awards</li>
-        <li>Fall cycle — apps due ~mid-September for spring awards</li>
+        <li>Spring cycle - apps due around February for fall awards</li>
+        <li>Fall cycle - apps due around mid-September for spring awards</li>
         <li>Must be enrolled in 6+ credit hours to receive funds</li>
         <li>Requires a thank-you letter to the donor</li>
         <li>Must reapply every year</li>
@@ -490,28 +162,26 @@
     <div class="card">
       <div class="card-label">Important numbers</div>
       <ul class="info-list">
-        <li>HCC FAFSA school code: <strong>007870</strong></li>
-        <li>Main phone: <strong>813-253-7000</strong></li>
-        <li>Financial aid email: visit hcfl.edu/financial-aid</li>
+        <li>HCC FAFSA school code: 007870</li>
+        <li>Main phone: 813-253-7000</li>
+        <li>Financial aid: visit hcfl.edu/financial-aid</li>
       </ul>
     </div>
   </div>
 
-  <!-- SERVICES TAB -->
   <div id="services" class="section">
     <div class="card">
       <div class="card-label">TRIO Student Support Services <span class="badge badge-purple">First-Gen Priority</span></div>
-      <p>Free federal program for first-gen, low-income, or disabled students. Offers academic advising, tutoring, career exploration, tech help, financial aid assistance, TRIO scholarships, and cultural activities. If you're first-gen, you likely qualify — apply on the HCC website.</p>
+      <p>Free federal program for first-gen, low-income, or disabled students. Offers advising, tutoring, career exploration, tech help, financial aid assistance, and TRIO scholarships. If you are first-gen, you likely qualify.</p>
     </div>
     <div class="card">
-      <div class="card-label">Academic Success Centers (Free Tutoring)</div>
-      <p>Free tutoring on every campus, in-person and virtual. Book appointments through WCOnline or just walk in. Available in math, writing, science, and more.</p>
+      <div class="card-label">Academic Success Centers - Free Tutoring</div>
+      <p>Free tutoring on every campus, in-person and virtual. Book through WCOnline or walk in. Available in math, writing, science, and more.</p>
     </div>
     <div class="card">
       <div class="card-label">Academic Advising</div>
       <ul class="info-list">
-        <li>Available in person or by phone at all 5 campuses</li>
-        <li>Uses HawkGPS to map out your full degree path</li>
+        <li>In person or by phone at all 5 campuses - call 813-253-7000</li>
         <li>Brandon: bradvising@hccfl.edu</li>
         <li>Dale Mabry: dmadvising@hccfl.edu</li>
         <li>Plant City: plantcityadvising@hccfl.edu</li>
@@ -521,22 +191,17 @@
     </div>
     <div class="card">
       <div class="card-label">Food 2 Finish <span class="badge badge-teal">Free</span></div>
-      <p>HCC's food insecurity program. Free food pantries on every campus, plus diapers and period products. Partners with Feeding Tampa Bay. No shame, no judgment — it's there for you.</p>
+      <p>Free food pantries on every campus plus diapers and hygiene products. Partners with Feeding Tampa Bay. No shame, no judgment.</p>
     </div>
     <div class="card">
       <div class="card-label">Free Counseling</div>
-      <p>HCC partners with BayCare Life Management to provide FREE confidential counseling for students. Contact: hcccounseling@hccfl.edu</p>
-    </div>
-    <div class="card">
-      <div class="card-label">Disability Services (OSSD)</div>
-      <p>Accommodations for students with physical, mental, or learning disabilities — including temporary injuries. Available on all campuses.</p>
+      <p>HCC partners with BayCare Life Management for FREE confidential counseling. Contact: hcccounseling@hccfl.edu</p>
     </div>
     <div class="card">
       <div class="card-label">Campus Life</div>
       <ul class="info-list">
-        <li>Clubs (10+ members, formal) and Interest Groups (5 members, informal) on every campus</li>
-        <li>Dale Mabry alone has 25+ active student organizations</li>
-        <li>Student Government Association (SGA) on each campus</li>
+        <li>Clubs and Interest Groups on every campus - Dale Mabry has 25+</li>
+        <li>Student Government Association on each campus</li>
         <li>Athletics: basketball, baseball, softball, volleyball, tennis</li>
         <li>Honors Program for high-achieving students</li>
         <li>Hawks Landing student housing near Dale Mabry campus</li>
@@ -544,177 +209,176 @@
     </div>
   </div>
 
-  <!-- ASSIGNMENT TAB -->
   <div id="assignment" class="section">
     <div class="card">
       <div class="card-label">1. Specialized purpose</div>
-      <p>An AI agent built specifically for first-generation college students at Hillsborough Community College. It helps students navigate financial aid deadlines, choose the right major or certificate based on their goals, understand the FAFSA process, discover free support services, and map out a realistic academic path — all in plain language, with no jargon, and in both English and Spanish.</p>
+      <p>An AI agent built for first-generation college students at HCC to navigate financial aid, choose a major, understand FAFSA, discover free support services, and plan their academic path in plain language, in English and Spanish.</p>
     </div>
     <div class="card">
       <div class="card-label">2a. Core features</div>
       <ul class="info-list">
-        <li><strong>Role/tone:</strong> Warm, encouraging, zero jargon — like a knowledgeable friend who went to college and wants to help you succeed</li>
-        <li><strong>Capabilities:</strong> HCC financial aid deadlines, FAFSA guidance, major/certificate matching, career exploration, Bright Futures info, support services, clubs, bilingual (EN/ES)</li>
-        <li><strong>Limitations:</strong> HCC-specific only — not a substitute for an official HCC advisor</li>
-        <li><strong>Response style:</strong> Asks intake questions first, then gives personalized guidance — not a wall of generic info</li>
-        <li><strong>Agent name:</strong> HCC First-Gen Navigator (also "Hawk Guide")</li>
+        <li>Role/tone: Warm, encouraging, zero jargon</li>
+        <li>Capabilities: HCC deadlines, FAFSA, major matching, career paths, TRIO, bilingual</li>
+        <li>Limitations: HCC-specific only, not a substitute for an official advisor</li>
+        <li>Response style: Asks intake questions first, then personalizes</li>
+        <li>Agent name: HCC First-Gen Navigator</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-label">2b. System prompt narrative</div>
-      <div class="prompt-box">You are the HCC First-Gen Navigator, a warm and knowledgeable AI guide built exclusively for first-generation college students at Hillsborough Community College (HCC) in Tampa, Florida.
-
-Your purpose is to help students navigate: financial aid, major and certificate selection, career awareness, student support services, campus life, and transfer planning.
-
-Always ask 2-3 intake questions before giving advice. Speak in plain, friendly language — explain every acronym. If the student writes in Spanish or says "en español", switch fully to Spanish. Remind students this supplements but does not replace an official HCC advisor.
-
-KEY HCC DATA:
-- FAFSA school code: 007870
-- Financial Aid Priority Deadlines: Fall 2025 = June 23 | Spring 2026 = Nov 17 | Summer 2026 = Mar 23
-- Payment Due Dates: Fall = July 18 | Spring = Dec 12 | Summer = April 17
-- HCC Foundation Scholarships: Spring apps ~February | Fall apps ~mid-September | 6+ credit hours required
-- 180+ programs across 18 subject areas
-- Degree types: AA (transfer), AS (career ready), CCC, PSAV, BS (RN to BSN only)
-- TRIO available for first-gen, low-income, or disabled students
-- Free tutoring at Academic Success Centers on every campus
-- Food 2 Finish program for food insecurity
-- Free counseling via BayCare Life Management partnership
-- Campus specialties: Brandon=Engineering Tech | Dale Mabry=Health Sciences/Culinary | Plant City=Nursing/Vet Tech | SouthShore=Business/EMS | Ybor=Arts/General Ed
-
-Connect major choices to: HCC degree name, which campus offers it, job titles, and Tampa Bay salary ranges. Always mention TRIO to first-gen students. Mention Food 2 Finish if a student mentions financial hardship.</div>
+      <div class="card-label">2b. System prompt</div>
+      <div class="prompt-box">You are the HCC First-Gen Navigator, a warm AI guide for first-generation students at Hillsborough Community College in Tampa, Florida. Help with financial aid, majors, careers, support services, and transfer planning. Always ask 2-3 intake questions before advising. Speak plainly, explain all acronyms, switch to Spanish if asked. FAFSA code: 007870. FA Deadlines: Fall=Jun 23, Spring=Nov 17, Summer=Mar 23. Always mention TRIO to first-gen students. Mention Food 2 Finish for food hardship.</div>
     </div>
     <div class="card">
       <div class="card-label">Technical highlights</div>
       <ul class="info-list">
-        <li>Powered by Claude Opus 4.6 — Anthropic's most capable model, chosen for nuance and personalization</li>
-        <li>Web search enabled — pulls live updates from hcfl.edu</li>
-        <li>Intake questionnaire logic — asks before advising, never generic</li>
-        <li>Bilingual English/Spanish — student just says "en español"</li>
-        <li>Major → career → salary pipeline for Tampa Bay job market</li>
-        <li>Financial aid + major integration — flags competitive admissions programs</li>
-        <li>TRIO awareness built in — mentions it automatically for qualifying students</li>
+        <li>Powered by Claude Opus 4.6 - most capable Claude model</li>
+        <li>Supabase database logs every conversation and feedback</li>
+        <li>Thumbs up/down feedback buttons after every response</li>
+        <li>Bilingual English and Spanish support</li>
+        <li>Major to career to salary pipeline for Tampa Bay</li>
+        <li>TRIO awareness built into every first-gen conversation</li>
       </ul>
     </div>
   </div>
 </div>
 
-<footer>HCC First-Gen Navigator · Built with Claude Opus 4.6 · Hillsborough Community College</footer>
+<footer>HCC First-Gen Navigator - Built with Claude Opus 4.6 - Hillsborough Community College</footer>
 
 <script>
-const SYSTEM_PROMPT = `You are the HCC First-Gen Navigator, a warm and knowledgeable AI guide built exclusively for first-generation college students at Hillsborough Community College (HCC) in Tampa, Florida.
+var SYSTEM_PROMPT = "You are the HCC First-Gen Navigator, a warm and knowledgeable AI guide built exclusively for first-generation college students at Hillsborough Community College (HCC) in Tampa, Florida. Your purpose is to help students navigate financial aid, major and certificate selection, career awareness, student support services, campus life, and transfer planning. Always ask 2-3 intake questions before giving advice. Speak in plain friendly language and explain every acronym. If the student writes in Spanish or says en espanol switch fully to Spanish. Remind students this supplements but does not replace an official HCC advisor. KEY HCC DATA: FAFSA school code 007870. Financial Aid Priority Deadlines: Fall 2025 June 23, Spring 2026 Nov 17, Summer 2026 Mar 23. Payment Due Dates: Fall July 18, Spring Dec 12, Summer April 17. Financial Aid Refunds Begin: Fall Sept 17, Spring Feb 11, Summer June 17. HCC Foundation Scholarships: Spring apps due around February, Fall apps due around mid-September, must be enrolled 6 or more credit hours, requires thank-you letter. Bright Futures is a Florida scholarship tied to GPA and community service hours. HCC has 180 plus programs across 18 subject areas. Degree types: AA is Associate in Arts which is the transfer track, AS is Associate in Science which is career ready, CCC is College Credit Certificate, PSAV is Postsecondary Adult Vocational, BS is RN to BSN nursing only. Nursing and health sciences have competitive separate admissions. Campus specialties: Brandon has Engineering Technology Aquaculture and Biotechnology. Dale Mabry has Health Sciences Computer Science and Culinary Arts. Plant City has Environmental Science Nursing and Veterinary Technology. SouthShore has Business EMS and Education. Ybor City has General education and arts. TRIO Student Support Services is free for first-gen low-income or disabled students and offers advising tutoring career help TRIO scholarships and cultural activities. Academic Success Centers offer free tutoring on every campus in person and virtual via WCOnline. Food 2 Finish provides free food pantries on all campuses and partners with Feeding Tampa Bay. Free counseling is available via BayCare Life Management partnership contact hcccounseling@hccfl.edu. Disability Services OSSD is on all campuses. Veterans Services email is veteranstudentaffairs@hccfl.edu. Hawks Landing is student housing near Dale Mabry campus. Clubs and Interest Groups are on every campus with Dale Mabry having 25 plus and SGA on each campus. Athletics include basketball baseball softball volleyball and tennis. HCC guarantees transferability to Florida state colleges and universities. Main phone is 813-253-7000. BEHAVIOR RULES: Always mention TRIO when talking to a first-gen student. Mention Food 2 Finish if student mentions financial hardship or food struggles. Connect major choices to the exact HCC degree name which campus offers it what jobs it leads to and Tampa Bay salary range. Flag competitive admissions for Nursing and all health science programs. If asked about transfer focus on AA degree as the pathway to USF UF FSU and other FL state universities.";
 
-Your purpose is to help students navigate: financial aid, major and certificate selection, career awareness, student support services, campus life, and transfer planning.
+var SUPABASE_URL = "https://cpgbvsfepbwfjplyxcdm.supabase.co";
+var SUPABASE_KEY = "sb_publishable_3D-u6yUcIsF0oH1MvID_Cg_lc_j8tVM";
+var messages = [];
+var lastUserMessage = "";
+var lastAgentResponse = "";
+var currentLang = "en";
 
-Always ask 2-3 intake questions before giving advice so responses are personalized. Speak in plain, friendly language — never use jargon without explaining it first. Explain any acronym the first time you use it. If the student writes in Spanish or says "en español", switch fully to Spanish and stay in Spanish. Remind students this supplements but does not replace an official HCC advisor. Keep responses concise and conversational — no walls of text.
-
-KEY HCC DATA:
-- FAFSA school code: 007870
-- Financial Aid Priority Deadlines: Fall 2025 = June 23 | Spring 2026 = Nov 17 | Summer 2026 = Mar 23
-- Payment Due Dates: Fall = July 18 | Spring = Dec 12 | Summer = April 17
-- Financial Aid Refunds Begin: Fall = Sept 17 | Spring = Feb 11 | Summer = June 17
-- HCC Foundation Scholarships: Spring apps due ~February | Fall apps due ~mid-September | Must be enrolled 6+ credit hours | Requires thank-you letter
-- Bright Futures: Florida scholarship tied to GPA and community service hours
-- 180+ programs across 18 subject areas
-- Degree types: AA (Associate in Arts = transfer track), AS (Associate in Science = career ready), CCC (College Credit Certificate), PSAV (Postsecondary Adult Vocational), BS (RN to BSN nursing only)
-- Nursing and health sciences have competitive separate admissions
-- Campus specialties: Brandon = Engineering Technology, Aquaculture, Biotechnology | Dale Mabry = Health Sciences, Computer Science, Culinary Arts | Plant City = Environmental Science, Nursing, Veterinary Technology | SouthShore = Business, EMS, Education | Ybor City = General education, arts
-- TRIO Student Support Services: free for first-gen, low-income, or disabled students — offers advising, tutoring, career help, TRIO scholarships, cultural activities
-- Academic Success Centers: free tutoring on every campus, in-person and virtual via WCOnline
-- Food 2 Finish: free food pantries on all campuses, partners with Feeding Tampa Bay
-- Free counseling via BayCare Life Management partnership — contact hcccounseling@hccfl.edu
-- Disability Services (OSSD) on all campuses
-- Veterans Services: veteranstudentaffairs@hccfl.edu
-- Hawks Landing student housing near Dale Mabry campus
-- Clubs and Interest Groups on every campus (Dale Mabry has 25+), SGA on each campus
-- Athletics: basketball, baseball, softball, volleyball, tennis
-- HCC guarantees transferability to Florida state colleges and universities
-- Main phone: 813-253-7000
-
-BEHAVIOR RULES:
-- Always mention TRIO when talking to a first-gen student — they likely qualify
-- Mention Food 2 Finish if student mentions financial hardship or food struggles
-- Connect major choices to: exact HCC degree name, which campus offers it, what jobs it leads to, Tampa Bay salary range
-- Flag competitive admissions for Nursing and all health science programs
-- If asked about transfer, focus on AA degree as the transfer pathway to USF, UF, FSU, and other FL state universities`;
-
-let messages = [];
+function logToSupabase(userMessage, agentResponse, feedback) {
+  fetch(SUPABASE_URL + "/rest/v1/conversations", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Prefer": "return=minimal"
+    },
+    body: JSON.stringify({ user_message: userMessage, agent_response: agentResponse, feedback: feedback, language: currentLang })
+  }).catch(function(e) { console.log("Log error", e); });
+}
 
 function showTab(id, el) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  el.classList.add('active');
+  document.querySelectorAll(".section").forEach(function(s) { s.classList.remove("active"); });
+  document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
+  el.classList.add("active");
 }
 
 function setLang(lang) {
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-  if (lang === 'es') quickSend('en español');
+  currentLang = lang;
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+  document.getElementById("btn-es").classList.toggle("active", lang === "es");
+  if (lang === "es") { quickSend("en espanol"); }
 }
 
 function quickSend(text) {
-  document.getElementById('chat-input').value = text;
+  document.getElementById("chat-input").value = text;
   sendMessage();
 }
 
+function addFeedbackButtons(userMsg, agentMsg) {
+  var container = document.getElementById("chat-messages");
+  var feedbackDiv = document.createElement("div");
+  feedbackDiv.style.cssText = "display:flex;gap:6px;align-items:center;padding:0 0 8px 0;";
+  var label = document.createElement("span");
+  label.textContent = "Was this helpful?";
+  label.style.cssText = "font-size:11px;color:#888780;";
+  var yesBtn = document.createElement("button");
+  yesBtn.textContent = "Yes";
+  yesBtn.style.cssText = "background:#E1F5EE;border:1px solid #5DCAA5;border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;color:#085041;font-family:inherit;";
+  var noBtn = document.createElement("button");
+  noBtn.textContent = "No";
+  noBtn.style.cssText = "background:#FCEBEB;border:1px solid #F09595;border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;color:#A32D2D;font-family:inherit;";
+  yesBtn.onclick = function() {
+    feedbackDiv.innerHTML = "<span style='font-size:11px;color:#085041;background:#E1F5EE;padding:3px 10px;border-radius:999px;'>Thanks for the feedback!</span>";
+    logToSupabase(userMsg, agentMsg, "positive");
+  };
+  noBtn.onclick = function() {
+    feedbackDiv.innerHTML = "<span style='font-size:11px;color:#085041;background:#E1F5EE;padding:3px 10px;border-radius:999px;'>Thanks! We will improve this.</span>";
+    logToSupabase(userMsg, agentMsg, "negative");
+  };
+  feedbackDiv.appendChild(label);
+  feedbackDiv.appendChild(yesBtn);
+  feedbackDiv.appendChild(noBtn);
+  container.appendChild(feedbackDiv);
+  container.scrollTop = container.scrollHeight;
+}
+
 function addMessage(role, text) {
-  const container = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg ' + (role === 'assistant' ? 'bot' : 'user');
-  const name = role === 'assistant' ? 'HCC First-Gen Navigator' : 'You';
-  div.innerHTML = '<div class="msg-name">' + name + '</div><div class="msg-bubble">' + text.replace(/\n/g,'<br>') + '</div>';
+  var container = document.getElementById("chat-messages");
+  var div = document.createElement("div");
+  div.className = "msg " + (role === "assistant" ? "bot" : "user");
+  var nameDiv = document.createElement("div");
+  nameDiv.className = "msg-name";
+  nameDiv.textContent = role === "assistant" ? "HCC First-Gen Navigator" : "You";
+  var bubble = document.createElement("div");
+  bubble.className = "msg-bubble";
+  bubble.innerHTML = text.replace(/\n/g, "<br>");
+  div.appendChild(nameDiv);
+  div.appendChild(bubble);
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
 }
 
 function addTyping() {
-  const container = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg bot';
-  div.id = 'typing-indicator';
-  div.innerHTML = '<div class="msg-name">HCC First-Gen Navigator</div><div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+  var container = document.getElementById("chat-messages");
+  var div = document.createElement("div");
+  div.className = "msg bot";
+  div.id = "typing-indicator";
+  div.innerHTML = "<div class='msg-name'>HCC First-Gen Navigator</div><div class='typing'><div class='dot'></div><div class='dot'></div><div class='dot'></div></div>";
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
 }
 
 function removeTyping() {
-  const t = document.getElementById('typing-indicator');
-  if (t) t.remove();
+  var t = document.getElementById("typing-indicator");
+  if (t) { t.remove(); }
 }
 
-async function sendMessage() {
-  const input = document.getElementById('chat-input');
-  const btn = document.getElementById('send-btn');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
+function sendMessage() {
+  var input = document.getElementById("chat-input");
+  var btn = document.getElementById("send-btn");
+  var text = input.value.trim();
+  if (!text) { return; }
+  input.value = "";
   btn.disabled = true;
-  addMessage('user', text);
-  messages.push({ role: 'user', content: text });
+  lastUserMessage = text;
+  addMessage("user", text);
+  messages.push({ role: "user", content: text });
   addTyping();
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-opus-4-6',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages: messages
-      })
-    });
-    const data = await res.json();
-    const reply = data.content?.[0]?.text || 'Sorry, something went wrong. Please try again.';
+  fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ model: "claude-opus-4-6", max_tokens: 1000, system: SYSTEM_PROMPT, messages: messages })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    var reply = (data.content && data.content[0] && data.content[0].text) || "Sorry, something went wrong.";
     removeTyping();
-    messages.push({ role: 'assistant', content: reply });
-    addMessage('assistant', reply);
-  } catch(e) {
+    lastAgentResponse = reply;
+    messages.push({ role: "assistant", content: reply });
+    addMessage("assistant", reply);
+    addFeedbackButtons(lastUserMessage, lastAgentResponse);
+    logToSupabase(lastUserMessage, lastAgentResponse, "none");
+    btn.disabled = false;
+    input.focus();
+  })
+  .catch(function(e) {
     removeTyping();
-    addMessage('assistant', 'Something went wrong connecting to the AI. Please check your connection and try again.');
-  }
-  btn.disabled = false;
-  input.focus();
+    addMessage("assistant", "Something went wrong. Please check your connection and try again.");
+    btn.disabled = false;
+    input.focus();
+  });
 }
 </script>
 </body>
