@@ -12,7 +12,7 @@ from supabase import create_client, Client
 
 # Configuration
 SUPABASE_URL = os.getenv("SUPABASE_URL", "https://cpgbvsfepbwfjplyxcdm.supabase.co")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwZ2J2c2ZlcGJ3ZmpwbHl4Y2RtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjIxOTIxMiwiZXhwIjoyMDkxNzk1MjEyfQ.aj4BjrnTmmmD6YQYMoWnBKLQUCt05XleSKegpW15G1I")
+SUPABASE_KEY = os.getenv("SUPABASE_Key" "Secret Key")
 
 # Initialize Supabase
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
