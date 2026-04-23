@@ -1,0 +1,50 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# API keys
+*.key
+secrets.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build
+dist/
+build/
+.netlify/
+
+# Temporary
+tmp/
+temp/
+*.tmp
