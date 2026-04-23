@@ -356,7 +356,7 @@ function sendMessage() {
   addMessage("user", text);
   messages.push({ role: "user", content: text });
   addTyping();
-  fetch("https://api.anthropic.com/v1/messages", {
+  fetch("/.netlify/functions/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ model: "claude-opus-4-6", max_tokens: 1000, system: SYSTEM_PROMPT, messages: messages })
